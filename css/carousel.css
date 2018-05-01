@@ -55,12 +55,21 @@
       width: 265px;
     }
     
+    .main_content .carousel_points li:hover .points_t {
+      opacity: 1;
+    }
+    
     .main_content .carousel_points li .points_t {
       line-height: 40px;
+      position: relative;
+      top: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
     
     .main_content .carousel_points li .points_spe {
       height: 2px;
+      width: 205px;
       background-color: #AD976E;
     }
     
@@ -72,10 +81,15 @@
       position: absolute;
       top: 35px;
       right: 0px;
+      transform: rotate(-45deg);
+      overflow: hidden;
     }
     
     .main_content .carousel_points li .points_num {
       line-height: 40px;
       width: 50px;
-      font: 40px 'Gotham-Bold';
+      font: 30px 'Gotham-Bold';
+      position: relative;
+      top: 50px;
+      transform: rotate(45deg);
     }

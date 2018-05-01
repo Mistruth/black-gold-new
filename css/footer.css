@@ -65,6 +65,22 @@
   font-size: 16px;
 }
 
+.f_t_content .contact_tel {
+  position: relative;
+}
+
+.f_t_content .contact_tel:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: -20px;
+  bottom: 6px;
+  width: 1px;
+  height: 50px;
+  background-color: #474747;
+  transform: rotate(30deg);
+}
+
 .footer_b .f_b_content {
   font-size: 12px;
   line-height: 40px;
