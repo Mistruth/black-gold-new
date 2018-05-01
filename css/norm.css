@@ -1,0 +1,97 @@
+body,
+ul,
+dl,
+dd,
+dt,
+li,
+p,
+h1,
+h2,
+h3,
+span,
+div,
+header,
+footer,
+aside,
+article,
+footer,
+nav,
+img,
+input,
+a {
+  margin: 0px;
+  padding: 0px;
+}
+
+img,
+input,
+button {
+  border: 0px;
+}
+
+input,
+button {
+  outline: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font: 12px "GothamRnd-Light" '微软雅黑';
+  color: #5B5B5B;
+  background-color: #111111;
+}
+
+a {
+  text-decoration: none;
+  color: #ad986d;
+  font-size: 14px;
+  font-family: "GothamRnd-Light" '微软雅黑';
+}
+
+a:hover {
+  color: #d7b97d;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  visibility: hidden;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix:after {
+  *zoom: 1;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+i {
+  position: relative;
+  line-height: 1;
+}

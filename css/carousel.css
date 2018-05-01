@@ -1,0 +1,81 @@
+    .carousel_wrapper {
+      width: 100%;
+      background: url(../images/banner_bg.png) no-repeat;
+    }
+    
+    .carousel_window {
+      height: 949px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carousel_box {
+      width: 600%;
+      position: absolute;
+    }
+    
+    .carousel_box>li {
+      float: left;
+    }
+    
+    .carousel_box>li>.item_bg>.item_det {
+      background: url(../images/bg_1_det.png) no-repeat;
+      height: 949px;
+      width: 1915px;
+    }
+    
+    .carousel_box>li>.item_bg {
+      background: url(../images/bg_1.png) no-repeat -150px;
+    }
+    
+    .points_window {
+      width: 1200px;
+      position: absolute;
+      left: 50%;
+      margin-left: -600px;
+      bottom: 50px;
+      height: 86px;
+      overflow: hidden;
+    }
+    
+    .carousel_points {
+      width: 3000px;
+      position: absolute;
+      z-index: 2;
+      color: #ad986d;
+      font-size: 12px;
+      user-select: none;
+    }
+    
+    .carousel_points>li {
+      cursor: pointer;
+      position: relative;
+      float: left;
+      margin: 0 200px 0 0;
+      width: 265px;
+    }
+    
+    .main_content .carousel_points li .points_t {
+      line-height: 40px;
+    }
+    
+    .main_content .carousel_points li .points_spe {
+      height: 2px;
+      background-color: #AD976E;
+    }
+    
+    .main_content .carousel_points li .points_b {
+      line-height: 44px;
+    }
+    
+    .points_num_wrap {
+      position: absolute;
+      top: 35px;
+      right: 0px;
+    }
+    
+    .main_content .carousel_points li .points_num {
+      line-height: 40px;
+      width: 50px;
+      font: 40px 'Gotham-Bold';
+    }
