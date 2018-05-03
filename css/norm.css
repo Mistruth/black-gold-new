@@ -1,3 +1,13 @@
+@font-face {
+  font-family: GothamRnd-Light;
+  src: url(../fonts/GothamRnd-Light.otf);
+}
+
+@font-face {
+  font-family: Gotham-Bold;
+  src: url(../fonts/Gotham-Bold.otf);
+}
+
 body,
 ul,
 dl,
@@ -39,7 +49,7 @@ ul {
 }
 
 body {
-  font: 12px "GothamRnd-Light" '微软雅黑';
+  font: 12px 'GothamRnd-Light', '微软雅黑';
   color: #5B5B5B;
   background-color: #111111;
 }
@@ -47,8 +57,7 @@ body {
 a {
   text-decoration: none;
   color: #ad986d;
-  font-size: 14px;
-  font-family: "GothamRnd-Light" '微软雅黑';
+  font: 14px 'GothamRnd-Light', '微软雅黑';
 }
 
 a:hover {

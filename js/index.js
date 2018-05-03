@@ -68,10 +68,15 @@ function carousel_points() {
 
   for (var i = 0; i < lis_points.length; i++) {
     lis_points[i].onmouseover = function() {
-      animate(this.children[0], { top: 0, opacity: 1 });
-      animate_speed(this.children[1], { width: 265 }, 10);
-      animate_speed(this.children[3].children[0], { top: 10 }, 10);
-    }
+        animate(this.children[0], { top: 0, opacity: 1 });
+        animate_speed(this.children[1], { width: 265 }, 10);
+        animate_speed(this.children[3].children[0], { top: 10 }, 10);
+      }
+      // lis_points[i].onclick = function() {
+      //   animate(this.children[0], { top: 0, opacity: 1 });
+      //   animate_speed(this.children[1], { width: 265 }, 10);
+      //   animate_speed(this.children[3].children[0], { top: 10 }, 10);
+      // }
     lis_points[i].onmouseout = function() {
       animate(this.children[0], { top: 20, opacity: 0 });
       animate_speed(this.children[1], { width: 205 }, 10);
@@ -146,10 +151,8 @@ function carousel() {
     }
     count_imgs--;
     count_points--;
-    animate_speed(carousel_box, { left: -count_imgs * carousel_window.offsetWidth }, 15);
-    animate_speed(carousel_points, { left: -count_points * points_move }, 15);
-
-    // lis_points.
+    animate(carousel_box, { left: -count_imgs * carousel_window.offsetWidth });
+    animate(carousel_points, { left: -count_points * points_move });
   }
 
 

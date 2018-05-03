@@ -85,7 +85,7 @@
 
 .points_num_wrap {
   position: absolute;
-  top: 35px;
+  top: 40px;
   right: 0px;
   transform: rotate(-45deg);
   overflow: hidden;
@@ -93,7 +93,7 @@
 
 .main_content .carousel_points li .points_num {
   line-height: 40px;
-  width: 50px;
+  width: 60px;
   font: 30px 'Gotham-Bold';
   position: relative;
   top: 50px;
@@ -106,25 +106,50 @@
 .points_larrow,
 .points_rarrow {
   width: 20px;
-  height: 20px;
   position: absolute;
   top: 50%;
   margin-top: -10px;
-  text-align: center;
-  line-height: 20px;
+  line-height: 22px;
   cursor: pointer;
+  transition: padding 0.3s;
+  overflow: hidden;
+  color: #ad986d;
+  font-size: 14px;
 }
 
-.points_larrow {
-  left: -50px;
+.points_larrow:hover {
+  padding-right: 40px;
+}
+
+.points_rarrow:hover {
+  padding-left: 40px;
 }
 
 .points_rarrow {
-  right: -50px;
+  left: 1250px;
+  text-align: right;
+}
+
+.points_larrow {
+  right: 1250px;
 }
 
 .points_larrow i,
 .points_rarrow i {
   font-size: 12px;
   color: #ad986d;
+  position: relative;
+}
+
+.points_larrow span,
+.points_rarrow span {
+  position: absolute;
+}
+
+.points_larrow span {
+  left: 20px;
+}
+
+.points_rarrow span {
+  right: 20px;
 }
