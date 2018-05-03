@@ -30,10 +30,10 @@ function nav_angle_move() {
         nav_li.className = '';
       }
       this.parentNode.parentNode.className = 'current';
+      position = moveLeft;
     }
   }
 }
-
 nav_angle_move();
 
 
@@ -53,88 +53,58 @@ function nav_scroll_move() {
 nav_scroll_move();
 
 
+
+
 //轮播图下面points详情的动画效果
 function carousel_points() {
   var carousel_points = document.querySelector('.carousel_points');
-  var points = carousel_points.children;
+  var carousel_window = document.querySelector('.carousel_window');
+  var carousel_box = document.querySelector('.carousel_window .carousel_box');
+  var lis_points = carousel_points.children;
+  var lis_Imgs = carousel_box.children;
   for (var i = 0; i < 3; i++) {
-    carousel_points.appendChild(points[i].cloneNode(true));
+    carousel_points.appendChild(lis_points[i].cloneNode(true));
   }
 
-  for (var i = 0; i < points.length; i++) {
-    points[i].onmouseenter = function() {
+  for (var i = 0; i < lis_points.length; i++) {
+    lis_points[i].onmouseover = function() {
       animate(this.children[0], { top: 0, opacity: 1 });
       animate_speed(this.children[1], { width: 265 }, 10);
       animate_speed(this.children[3].children[0], { top: 10 }, 10);
     }
-    points[i].onmouseleave = function() {
+    lis_points[i].onmouseout = function() {
       animate(this.children[0], { top: 20, opacity: 0 });
       animate_speed(this.children[1], { width: 205 }, 10);
       animate_speed(this.children[3].children[0], { top: 50 }, 10);
     }
   }
 }
-
 carousel_points();
-var carousel_window = document.querySelector('.carousel_window');
 
-//轮播图切换的动画效果
-function carousel() {
-  var carousel_box = document.querySelector('.carousel_window .carousel_box');
-  var l_btn = document.querySelector('.points_larrow');
-  var r_btn = document.querySelector('.points_rarrow');
-  var count = 0;
-  var carousel_points = document.querySelector('.points_window .carousel_points');
-  var points_window = document.querySelector('.points_window_wrapper .points_window');
-  var points_move = 465;
-  var lis = carousel_points.children;
-
-
-  //动态创建最后一个li
-  carousel_box.appendChild(carousel_box.firstElementChild.cloneNode(true));
-
-  l_btn.onclick = function() {
-    if (count <= 0) {
-      count = lis.length;
-      carousel_box.style.left = -count * carousel_window.offsetWidth;
-    }
-    count--;
-    animate_speed(carousel_box, { left: -count * carousel_window.offsetWidth }, 15);
-    animate_speed(carousel_points, { left: -count * points_move }, 15);
-  }
-  r_btn.onclick = function() {
-    if (count >= lis.length) {
-      count = 0;
-      carousel_box.style.left = -count * carousel_window.offsetWidth;
-    }
-    count++;
-    animate_speed(carousel_box, { left: -count * carousel_window.offsetWidth }, 15);
-    animate_speed(carousel_points, { left: -count * points_move }, 15);
-  }
-}
-carousel();
 
 //给轮播图增加图片
 function addImg() {
   var ul = document.querySelector('.carousel_window .carousel_box');
-  var lis = ul.children;
   var bg_imgs = document.querySelectorAll('.item_bg');
   var bg_dets = document.querySelectorAll('.item_det');
+  var carousel_window = document.querySelector('.carousel_window');
+  var carousel_box = document.querySelector('.carousel_window .carousel_box');
+  var lis_points = carousel_points.children;
+  var lis_Imgs = carousel_box.children;
 
-
-  for (var i = 0; i < lis.length; i++) {
-    lis[i].style.width = document.documentElement.offsetWidth + 'px';
+  for (var i = 0; i < lis_Imgs.length; i++) {
+    lis_Imgs[i].style.width = document.documentElement.offsetWidth + 'px';
   }
 
-  ul.style.width = document.documentElement.offsetWidth * lis.length + 'px';
+  ul.style.width = document.documentElement.offsetWidth * lis_Imgs.length + 'px';
   carousel_window.style.width = document.documentElement.offsetWidth + 'px';
 
   window.onresize = function() {
-    for (var i = 0; i < lis.length; i++) {
-      lis[i].style.width = document.documentElement.offsetWidth + 'px';
+    for (var i = 0; i < lis_Imgs.length; i++) {
+      lis_Imgs[i].style.width = document.documentElement.offsetWidth + 'px';
     }
 
-    ul.style.width = document.documentElement.offsetWidth * lis.length + 'px';
+    ul.style.width = document.documentElement.offsetWidth * lis_Imgs.length + 'px';
     carousel_window.style.width = document.documentElement.offsetWidth + 'px';
 
   }
@@ -147,7 +117,68 @@ function addImg() {
 addImg();
 
 
+
+//轮播图切换的动画效果
+function carousel() {
+  var l_btn = document.querySelector('.points_larrow');
+  var r_btn = document.querySelector('.points_rarrow');
+  var count_imgs = 0;
+  var count_points = 0;
+  var carousel_points = document.querySelector('.points_window .carousel_points');
+  var points_move = 465;
+  var carousel_window = document.querySelector('.carousel_window');
+  var carousel_box = document.querySelector('.carousel_window .carousel_box');
+  var lis_points = carousel_points.children;
+  var lis_Imgs = carousel_box.children;
+
+  //动态创建最后一个li img
+  carousel_box.appendChild(carousel_box.firstElementChild.cloneNode(true));
+
+  //给左箭头注册事件
+  l_btn.onclick = function() {
+    if (count_points <= 0) {
+      count_points = lis_points.length - 3; //因为多加了三个克隆的points
+      carousel_points.style.left = -count_points * points_move + 'px';
+    }
+    if (count_imgs <= 0) {
+      count_imgs = lis_Imgs.length - 1;
+      carousel_box.style.left = -count_imgs * carousel_window.offsetWidth + 'px';
+    }
+    count_imgs--;
+    count_points--;
+    animate_speed(carousel_box, { left: -count_imgs * carousel_window.offsetWidth }, 15);
+    animate_speed(carousel_points, { left: -count_points * points_move }, 15);
+
+    // lis_points.
+  }
+
+
+  //给右箭头注册事件
+  r_btn.onclick = function() {
+    if (count_points >= lis_points.length - 3) {
+      count_points = 0;
+      carousel_points.style.left = -count_points * points_move + 'px';
+    }
+    if (count_imgs >= lis_Imgs.length - 1) {
+      count_imgs = 0;
+      carousel_box.style.left = -count_imgs * carousel_window.offsetWidth + 'px';
+    }
+    count_imgs++;
+    count_points++;
+    animate_speed(carousel_box, { left: -count_points * carousel_window.offsetWidth }, 15);
+    animate_speed(carousel_points, { left: -count_points * points_move }, 15);
+  }
+
+  //给每个points注册事件
+
+
+
+
+}
+carousel();
+
+
+
 //第一个points具有onmouseover的效果
 // function firstEmerge() {
-
 // }
