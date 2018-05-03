@@ -33,6 +33,7 @@ function nav_angle_move() {
     }
   }
 }
+
 nav_angle_move();
 
 
@@ -48,46 +49,105 @@ function nav_scroll_move() {
     }
   }
 }
+
 nav_scroll_move();
 
 
-
+//轮播图下面points详情的动画效果
 function carousel_points() {
-  var points = document.querySelectorAll('.carousel_points>li');
+  var carousel_points = document.querySelector('.carousel_points');
+  var points = carousel_points.children;
+  for (var i = 0; i < 3; i++) {
+    carousel_points.appendChild(points[i].cloneNode(true));
+  }
+
   for (var i = 0; i < points.length; i++) {
     points[i].onmouseenter = function() {
-      animate(this.children[0], { top: 0 });
+      animate(this.children[0], { top: 0, opacity: 1 });
       animate_speed(this.children[1], { width: 265 }, 10);
       animate_speed(this.children[3].children[0], { top: 10 }, 10);
     }
     points[i].onmouseleave = function() {
-      animate(this.children[0], { top: 20 });
+      animate(this.children[0], { top: 20, opacity: 0 });
       animate_speed(this.children[1], { width: 205 }, 10);
       animate_speed(this.children[3].children[0], { top: 50 }, 10);
     }
   }
 }
+
 carousel_points();
+var carousel_window = document.querySelector('.carousel_window');
 
-// function opacityChange(element, target) {
+//轮播图切换的动画效果
+function carousel() {
+  var carousel_box = document.querySelector('.carousel_window .carousel_box');
+  var l_btn = document.querySelector('.points_larrow');
+  var r_btn = document.querySelector('.points_rarrow');
+  var count = 0;
+  var carousel_points = document.querySelector('.points_window .carousel_points');
+  var points_window = document.querySelector('.points_window_wrapper .points_window');
+  var points_move = 465;
+  var lis = carousel_points.children;
 
-//   element.timeId = setInterval(function() {
-//     var current = window.getComputedStyle(element).opacity;
-//     var step = 0.5;
-//     if (target == 1) {
-//       step += step;
-//       current += step;
-//     } else if (target == 0) {
-//       step += step;
-//       current -= step;
-//     }
-//     element.style.opacity = current;
-//     if (current >= 1) {
-//       element.style.opacity = 1;
-//       clearInterval(element.timeId);
-//     } else if (current <= 0) {
-//       element.style.opacity = 0;
-//       clearInterval(element.timeId);
-//     }
-//   }, 6);
+
+  //动态创建最后一个li
+  carousel_box.appendChild(carousel_box.firstElementChild.cloneNode(true));
+
+  l_btn.onclick = function() {
+    if (count <= 0) {
+      count = lis.length;
+      carousel_box.style.left = -count * carousel_window.offsetWidth;
+    }
+    count--;
+    animate_speed(carousel_box, { left: -count * carousel_window.offsetWidth }, 15);
+    animate_speed(carousel_points, { left: -count * points_move }, 15);
+  }
+  r_btn.onclick = function() {
+    if (count >= lis.length) {
+      count = 0;
+      carousel_box.style.left = -count * carousel_window.offsetWidth;
+    }
+    count++;
+    animate_speed(carousel_box, { left: -count * carousel_window.offsetWidth }, 15);
+    animate_speed(carousel_points, { left: -count * points_move }, 15);
+  }
+}
+carousel();
+
+//给轮播图增加图片
+function addImg() {
+  var ul = document.querySelector('.carousel_window .carousel_box');
+  var lis = ul.children;
+  var bg_imgs = document.querySelectorAll('.item_bg');
+  var bg_dets = document.querySelectorAll('.item_det');
+
+
+  for (var i = 0; i < lis.length; i++) {
+    lis[i].style.width = document.documentElement.offsetWidth + 'px';
+  }
+
+  ul.style.width = document.documentElement.offsetWidth * lis.length + 'px';
+  carousel_window.style.width = document.documentElement.offsetWidth + 'px';
+
+  window.onresize = function() {
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].style.width = document.documentElement.offsetWidth + 'px';
+    }
+
+    ul.style.width = document.documentElement.offsetWidth * lis.length + 'px';
+    carousel_window.style.width = document.documentElement.offsetWidth + 'px';
+
+  }
+
+  for (var i = 0; i < bg_imgs.length; i++) {
+    bg_imgs[i].style.backgroundImage = "url(images/bg_" + (i + 1) + ".png)";
+    bg_dets[i].style.backgroundImage = "url(images/bg_" + (i + 1) + "_det.png";
+  }
+}
+addImg();
+
+
+//第一个points具有onmouseover的效果
+// function firstEmerge() {
+
 // }

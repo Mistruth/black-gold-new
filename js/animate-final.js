@@ -5,61 +5,78 @@
  * @param {*} obj 对象，所添加的键值对
  * @param {*} fn 动画之后所执行的函数
  */
-var animate = function(element, obj, fn) {
+//增加opacity和zindex
+function animate(element, obj, fn) {
   clearInterval(element.timeId);
   element.timeId = setInterval(function() {
-    var flag = true;
-    for (var k in obj) {
-      //获得当前属性的状态
-      var current = window.getComputedStyle(element)[k]; //得到的是一个带PX的值，需要进行转换
-      current = parseInt(current);
-      //设置目标
-      var target = obj[k];
-      //设置步数
-      var step = (target - current) / 10;
-      step = step > 0 ? Math.ceil(step) : Math.floor(step);
-      //当前current
-      current += step;
-      //设置状态新的值
-      element.style[k] = current + 'px';
-      //确定是否停止
-      if (current != target) {
-        flag = false;
+      var flag = true; //假设所有的样式都达到终点
+      for (var k in obj) {
+        if (k === 'opacity') {
+          var current = window.getComputedStyle(element)[k];
+          current = parseFloat(current);
+          current *= 1000; //扩大1000倍
+          obj[k] *= 1000;
+          step = (obj[k] - current) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;
+          current /= 1000;
+          element.style.opacity = current;
+        } else if (k === 'zIndex') {
+          element.style.zIndex = obj[k];
+        } else {
+          var current = window.getComputedStyle(element)[k];
+          current = parseInt(current); //通过getComputedStyle获取到的属性包含px，这里需要除去
+          var step = (obj[k] - current) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;
+          element.style[k] = current + 'px';
+        }
+        if (current != obj[k]) {
+          flag = false;
+        } //end if
+      } //end for in
+      if (flag) {
+        clearInterval(element.timeId);
+        fn && fn(); //如果前面的为真,后面的也为真，那么取后面的那个值
       }
-    }
-    if (flag) {
-      clearInterval(element.timeId);
-      fn && fn();
-    }
-  }, 15);
-}
+    }, 15) //setinterval
+} //end func
 
 
-var animate_speed = function(element, obj, speed) {
-  var speed = speed || 15;
+function animate_speed(element, obj, speed, speed2) {
+  speed2 = speed2 || 10;
+  speed = speed || 15;
   clearInterval(element.timeId);
   element.timeId = setInterval(function() {
-    var flag = true;
-    for (var k in obj) {
-      //获得当前属性的状态
-      var current = window.getComputedStyle(element)[k]; //得到的是一个带PX的值，需要进行转换
-      current = parseInt(current);
-      //设置目标
-      var target = obj[k];
-      //设置步数
-      var step = (target - current) / 10;
-      step = step > 0 ? Math.ceil(step) : Math.floor(step);
-      //当前current
-      current += step;
-      //设置状态新的值
-      element.style[k] = current + 'px';
-      //确定是否停止
-      if (current != target) {
-        flag = false;
+      var flag = true; //假设所有的样式都达到终点
+      for (var k in obj) {
+        if (k === 'opacity') {
+          var current = window.getComputedStyle(element)[k];
+          current = parseFloat(current);
+          current *= 1000; //扩大1000倍
+          obj[k] *= 1000;
+          step = (obj[k] - current) / speed2;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;
+          current /= 1000;
+          element.style.opacity = current;
+        } else if (k === 'zIndex') {
+          element.style.zIndex = obj[k];
+        } else {
+          var current = window.getComputedStyle(element)[k];
+          current = parseInt(current); //通过getComputedStyle获取到的属性包含px，这里需要除去
+          var step = (obj[k] - current) / speed2;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;
+          element.style[k] = current + 'px';
+        }
+        if (current != obj[k]) {
+          flag = false;
+        } //end if
+      } //end for in
+      if (flag) {
+        clearInterval(element.timeId);
+        //如果前面的为真,后面的也为真，那么取后面的那个值
       }
-    }
-    if (flag) {
-      clearInterval(element.timeId);
-    }
-  }, speed);
-}
+    }, speed) //setinterval
+} //end func
