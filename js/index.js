@@ -37,13 +37,19 @@ function nav_angle_move() {
 nav_angle_move();
 
 
-//屏幕滚动后，导航变小
+//屏幕滚动后，导航变小 回到顶部模块出现
 function nav_scroll_move() {
   var nav = document.querySelector('.nav');
+  var toTop = document.querySelector('header .toTop');
   window.onscroll = function() {
     var t = this.document.body.scrollTop || this.document.documentElement.scrollTop;
     if (t > 0) {
       nav.className = 'nav container clearfix mini';
+      if (t > 500) {
+        animate(toTop, { opacity: 1 });
+      } else {
+        animate(toTop, { opacity: 0 });
+      }
     } else {
       nav.className = 'nav container clearfix';
     }
@@ -101,7 +107,7 @@ function addImg() {
     lis_Imgs[i].style.width = document.documentElement.offsetWidth + 'px';
   }
 
-  ul.style.width = document.documentElement.offsetWidth * lis_Imgs.length + 'px';
+  ul.style.width = document.documentElement.offsetWidth * (lis_Imgs.length + 1) + 'px';
   carousel_window.style.width = document.documentElement.offsetWidth + 'px';
 
   window.onresize = function() {
@@ -109,9 +115,8 @@ function addImg() {
       lis_Imgs[i].style.width = document.documentElement.offsetWidth + 'px';
     }
 
-    ul.style.width = document.documentElement.offsetWidth * lis_Imgs.length + 'px';
+    ul.style.width = document.documentElement.offsetWidth * (lis_Imgs.length + 1) + 'px';
     carousel_window.style.width = document.documentElement.offsetWidth + 'px';
-
   }
 
   for (var i = 0; i < bg_imgs.length; i++) {
@@ -135,6 +140,7 @@ function carousel() {
   var carousel_box = document.querySelector('.carousel_window .carousel_box');
   var lis_points = carousel_points.children;
   var lis_Imgs = carousel_box.children;
+  var lis_points_len = lis_points.length;
 
   //动态创建最后一个li img
   carousel_box.appendChild(carousel_box.firstElementChild.cloneNode(true));
@@ -155,7 +161,6 @@ function carousel() {
     animate(carousel_points, { left: -count_points * points_move });
   }
 
-
   //给右箭头注册事件
   r_btn.onclick = function() {
     if (count_points >= lis_points.length - 3) {
@@ -164,21 +169,73 @@ function carousel() {
     }
     if (count_imgs >= lis_Imgs.length - 1) {
       count_imgs = 0;
-      carousel_box.style.left = -count_imgs * carousel_window.offsetWidth + 'px';
+      carousel_box.style.left = 0;
     }
     count_imgs++;
     count_points++;
-    animate_speed(carousel_box, { left: -count_points * carousel_window.offsetWidth }, 15);
+    animate_speed(carousel_box, { left: -count_imgs * carousel_window.offsetWidth }, 15);
     animate_speed(carousel_points, { left: -count_points * points_move }, 15);
   }
 
-  //给每个points注册事件
+  // 给每个points注册事件
+  for (var i = 0; i < lis_points_len; i++) {
+    lis_points[i].index = i;
+    lis_points[i].addEventListener('click', function() {
 
-
-
-
+      //这里不能用i
+      if (this.index >= 6) {
+        count_imgs = this.index - 5;
+        count_points = this.index - 5;
+        carousel_box.style.left = 0 + 'px';
+        carousel_points.style.left = 0 + 'px';
+      } else {
+        count_imgs = this.index;
+        count_points = this.index;
+      }
+      animate(carousel_box, { left: -count_imgs * carousel_window.offsetWidth });
+      animate(carousel_points, { left: -count_points * points_move });
+    })
+  }
 }
 carousel();
+
+
+//num变换加载
+function bg_num_run() {
+  var bg_nums = document.querySelectorAll(".bg_num");
+  var data = [2014, 268, 126, 470];
+  window.onload = function() {
+    numRunFun(bg_nums[0], 0, data[0], 40);
+    numRunFun(bg_nums[1], 0, data[1], 5);
+    numRunFun(bg_nums[2], 0, data[2], 2.5);
+    numRunFun(bg_nums[3], 0, data[3], 10);
+  }
+}
+bg_num_run();
+
+/**  
+ * 数字滚动  
+ * @param {Object} num      开始值  
+ * @param {Object} maxNum   最大值,最终展示的值  
+ */
+function numRunFun(element, num, maxNum, speed) {
+  speed = speed || 10;
+  var numText = num;
+  var golb; // 为了清除requestAnimationFrame  
+  function numSlideFun() {
+    numText += speed; // 速度的计算可以为小数  
+    if (numText >= maxNum) {
+      numText = maxNum;
+      cancelAnimationFrame(golb);
+    } else {
+      golb = requestAnimationFrame(numSlideFun);
+    }
+    element.innerHTML = ~~(numText)
+  }
+  numSlideFun();
+}
+// 运行  
+
 
 
 

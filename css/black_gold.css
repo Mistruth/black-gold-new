@@ -1,0 +1,148 @@
+.black_gold .bgold_t {
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.black_gold .bgold_t ul li {
+  width: 25%;
+  float: left;
+  text-align: center;
+  height: 185px;
+  position: relative;
+}
+
+.black_gold .bgold_t ul li:not(:first-child)::before {
+  content: '';
+  height: 80px;
+  width: 1px;
+  background-color: #2b2821;
+  transform: rotate(30deg);
+  position: absolute;
+  top: 45px;
+  left: 0px;
+}
+
+.black_gold .bgold_t ul li .bg_num {
+  font-size: 50px;
+  color: #ad986d;
+  line-height: 52px;
+  margin-top: 50px;
+}
+
+.black_gold .bgold_t ul li .bg_title {
+  font-size: 13px;
+  color: #7a7a7a;
+  line-height: 30px;
+}
+
+.black_gold .bgold_b {
+  height: 550px;
+}
+
+.bgold_b_content {
+  width: 650px;
+  float: left;
+  padding-top: 80px;
+}
+
+.bgold_b_title h1 {
+  font-size: 22px;
+  color: #ad986d;
+  font-weight: normal;
+}
+
+.bgold_b_title p {
+  letter-spacing: 2px;
+  color: #594f3c;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.bgold_b_detail h2 {
+  font-size: 18px;
+  color: #ad986d;
+  font-weight: normal;
+  padding-top: 100px;
+}
+
+.bgold_b_detail p {
+  font-size: 13px;
+  color: #464545;
+  line-height: 28px;
+  padding-top: 30px;
+}
+
+.bgold_b_img a img {
+  height: 300px;
+  width: 460px;
+}
+
+.bgold_b_img {
+  margin-top: 150px;
+}
+
+.bgold_b_more {
+  display: inline-block;
+  margin-top: 40px;
+  position: relative;
+  user-select: none;
+}
+
+.bgold_b_more .more {
+  height: 30px;
+  width: 60px;
+  line-height: 30px;
+  text-align: center;
+  font-family: 'GothamRnd-Light';
+  border: 2px solid #ad986d;
+  opacity: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.bgold_b_more p {
+  font-size: 14px;
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  color: #AD986D;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.bgold_b_content:hover .bgold_b_more .more {
+  opacity: 1;
+  width: 90px;
+}
+
+.bgold_b_content:hover .bgold_b_more i {
+  left: 46px;
+}
+
+.bgold_b_content:hover .bgold_b_more .line {
+  width: 50px;
+}
+
+.bgold_b_content:hover .bgold_b_more p {
+  padding-left: 10px;
+}
+
+.bgold_b_more i {
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  margin-top: -6px;
+  font-size: 13px;
+  color: #ad986d;
+  transition: left 0.3s;
+}
+
+.bgold_b_more .line {
+  height: 2px;
+  width: 0px;
+  background-color: #ad986d;
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  margin-top: -1px;
+  transition: width 0.3s;
+}
