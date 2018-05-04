@@ -210,11 +210,26 @@ function carousel() {
 }
 carousel();
 
-//鼠标在轮播图上面移动，轮播图的背景图片有移动的效果
-// function carousel_bg_move() {
-//   var carousel_window = document.querySelector('.carousel_window');
+// 鼠标在轮播图上面移动，轮播图的背景图片有移动的效果
+function carousel_bg_move() {
+  var carousel_window = document.querySelector('.carousel_window');
+  var item_bgs = document.querySelectorAll('.item_bg');
 
-// }
+  carousel_window.addEventListener('mousemove', function(e) {
+    var x = e.clientX;
+    for (var i = 0; i < item_bgs.length; i++) {
+      item_bgs[i].style.backgroundPositionX = -x / 30 + 'px';
+    }
+  });
+  carousel_window.addEventListener('mouseout', function() {
+    for (var i = 0; i < item_bgs.length; i++) {
+      animate(item_bgs[i], { backgroundPositionX: 0 });
+    }
+  });
+}
+
+// });
+carousel_bg_move();
 
 //num变换加载
 function bg_num_run() {
