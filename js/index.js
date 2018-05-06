@@ -41,19 +41,20 @@ nav_angle_move();
 function nav_scroll_move() {
   var nav = document.querySelector('.nav');
   var toTop = document.querySelector('header .toTop');
-  window.onscroll = function() {
+  window.addEventListener('scroll', function() {
     var t = this.document.body.scrollTop || this.document.documentElement.scrollTop;
     if (t > 0) {
       nav.className = 'nav container clearfix mini';
       if (t > 500) {
+        toTop.style.display = 'block';
         animate(toTop, { opacity: 1 });
       } else {
-        animate(toTop, { opacity: 0 });
+        toTop.style.display = 'none';
       }
     } else {
       nav.className = 'nav container clearfix';
     }
-  }
+  })
 }
 
 nav_scroll_move();
@@ -254,6 +255,9 @@ function carousel() {
   //   carousel_box.style.left = current - x + 'px';
   // }
   //
+
+
+
   //拖动轮播图，可以滑动轮播图
 
   carousel_window.onmousedown = function(e) {
@@ -277,6 +281,35 @@ function carousel() {
 carousel();
 
 
+// totop 回到顶部
+function toTopMove() {
+  var toTop = document.querySelector('.toTop');
+  var timeId = null;
+  toTop.addEventListener('click', function() {
+    if (timeId) {
+      clearInterval(timeId);
+    }
+    timeId = setInterval(function() {
+      var current = document.body.scrollTop || document.documentElement.scrollTop;
+      var step = 20;
+      var target = 0;
+      if ((current - target) < step) {
+        clearInterval(timeId);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        return;
+      }
+      current -= step;
+      // window.pageYOffset = current;
+      document.documentElement.scrollTop = current;
+    })
+  }, 5)
+}
+toTopMove();
+
+
+
+
 
 // 鼠标在轮播图上面移动，轮播图的背景图片有移动的效果
 // function carousel_bg_move() {
@@ -297,16 +330,6 @@ carousel();
 // }
 
 // carousel_bg_move();
-
-
-
-
-
-//点击
-
-
-
-
 
 //num变换加载
 function bg_num_run() {

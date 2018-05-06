@@ -84,3 +84,26 @@ function animate_speed(element, obj, speed, speed2) {
       }
     }, speed) //setinterval
 } //end func
+
+
+
+
+function animate_stable(element, target, step, time, fn) {
+  clearInterval(element.timeId);
+  //设置每一个元素的计时器,把他放在对象上面，可以避免全局变量造成只有一个timeId的问题
+  element.timeId = setInterval(function() {
+    //获取当前坐标
+    var current = element.offsetLeft;
+    //设置当前步数
+    step = target > current ? Math.abs(step) : -Math.abs(step);
+    current += step;
+    //设置判断条件
+    if (Math.abs(target - current) > Math.abs(step)) {
+      element.style.left = current + 'px';
+    } else {
+      clearInterval(element.timeId);
+      element.style.left = target + 'px';
+      fn && fn();
+    }
+  }, time)
+}
