@@ -44,7 +44,8 @@ button {
   outline: 0px;
 }
 
-ul {
+ul,
+ol {
   list-style: none;
 }
 

@@ -21,6 +21,7 @@ header {
 .nav_wrapper {
   margin-top: 25px;
   transition: 0.3s;
+  position: relative;
 }
 
 
@@ -45,6 +46,41 @@ div.mini .logo img {
 div.mini .nav_list>li>a {
   font-size: 13px;
 }
+
+
+/* 新的搜索框 */
+
+.newsearch {
+  position: absolute;
+  line-height: 30px;
+  width: 100px;
+  background-color: pink;
+  top: 5px;
+  left: 550px;
+  opacity: 0;
+}
+
+.newsearch i {
+  cursor: pointer;
+  font-size: 20px;
+  color: #AD986D;
+  position: absolute;
+  left: -30px;
+  top: 5px;
+}
+
+.newsearch input {
+  height: 30px;
+  width: 260px;
+  text-indent: 1em;
+  color: #AD986D;
+  position: absolute;
+  background-color: transparent;
+  border-bottom: 1px solid #3B3B3B;
+}
+
+
+/* 新的搜索框 */
 
 
 /* 变小 */

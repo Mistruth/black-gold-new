@@ -21,6 +21,9 @@ function animate(element, obj, fn) {
           current += step;
           current /= 1000;
           element.style.opacity = current;
+          if (current != obj[k]) {
+            flag = false;
+          } //end if
         } else if (k === 'zIndex') {
           element.style.zIndex = obj[k];
         } else {
@@ -30,10 +33,11 @@ function animate(element, obj, fn) {
           step = step > 0 ? Math.ceil(step) : Math.floor(step);
           current += step;
           element.style[k] = current + 'px';
+          if (current != obj[k]) {
+            flag = false;
+          } //end if
         }
-        if (current != obj[k]) {
-          flag = false;
-        } //end if
+
       } //end for in
       if (flag) {
         clearInterval(element.timeId);

@@ -60,6 +60,38 @@ nav_scroll_move();
 
 
 
+//点击搜索按钮 顶部消失，切换成搜索框
+function nav_search_click() {
+  var nav_search = document.querySelector('.nav_search');
+  var nav_others = document.querySelector('.nav_others');
+  var nav_list = document.querySelector('.nav_list');
+  var newsearch = document.querySelector('.newsearch');
+  var newsearch_ico = document.querySelector('.newsearch i');
+  nav_search.addEventListener('click', function() {
+    for (var i = 0; i < nav_others.children.length; i++) {
+      animate(nav_others.children[i], { opacity: 0 });
+    }
+    for (var i = 0; i < nav_list.children.length; i++) {
+      animate(nav_list.children[i], { opacity: 0 });
+    }
+    animate_speed(newsearch, { left: 300, opacity: 1 }, 15, 15);
+  });
+
+  newsearch_ico.addEventListener('click', function() {
+    animate(newsearch, { opacity: 0 }, function() {
+      newsearch.style.left = '550px';
+    })
+    for (var i = 0; i < nav_others.children.length; i++) {
+      animate(nav_others.children[i], { opacity: 1 });
+    }
+    for (var i = 0; i < nav_list.children.length; i++) {
+      animate(nav_list.children[i], { opacity: 1 });
+    }
+  });
+}
+nav_search_click();
+
+
 
 //轮播图下面points详情的动画效果
 function carousel_points() {
@@ -207,29 +239,74 @@ function carousel() {
       });
     })
   }
+  //拖动轮播图，可以滑动轮播图
+  // carousel_window.addEventListener('mousedown', function(e) {
+  //     var spaceX = e.clientX;
+  //     var current = window.getComputedStyle(carousel_box).left;
+  //     current = parseInt(current);
+  //     carousel_window.addEventListener('mousemove', fn(e, spaceX, current));
+  //   })
+  //   // hah
+  // function fn(e, spaceX, current) {
+  //   var spaceX = spaceX;
+  //   var x = spaceX - e.clientX;
+  //   var current = current;
+  //   carousel_box.style.left = current - x + 'px';
+  // }
+  //
+  //拖动轮播图，可以滑动轮播图
+
+  carousel_window.onmousedown = function(e) {
+    var spaceX = e.clientX;
+    var current = parseInt(window.getComputedStyle(carousel_box).left);
+    carousel_window.onmousemove = function(e) {
+      var x = spaceX - e.clientX;
+      carousel_box.style.left = current - x + 'px';
+    }
+  }
+  carousel_window.addEventListener('mouseup', function(e) {
+    // carousel_window.removeEventListener('mousemove', fn);
+    carousel_window.onmousemove = null;
+    if (e.clientX < window.innerWidth / 2) {
+      r_btn.click();
+    } else {
+      l_btn.click();
+    }
+  })
 }
 carousel();
 
+
+
 // 鼠标在轮播图上面移动，轮播图的背景图片有移动的效果
-function carousel_bg_move() {
-  var carousel_window = document.querySelector('.carousel_window');
-  var item_bgs = document.querySelectorAll('.item_bg');
+// function carousel_bg_move() {
+//   var carousel_window = document.querySelector('.carousel_window');
+//   var item_bgs = document.querySelectorAll('.item_bg');
 
-  carousel_window.addEventListener('mousemove', function(e) {
-    var x = e.clientX;
-    for (var i = 0; i < item_bgs.length; i++) {
-      item_bgs[i].style.backgroundPositionX = -x / 30 + 'px';
-    }
-  });
-  carousel_window.addEventListener('mouseout', function() {
-    for (var i = 0; i < item_bgs.length; i++) {
-      animate(item_bgs[i], { backgroundPositionX: 0 });
-    }
-  });
-}
+//   carousel_window.addEventListener('mousemove', function(e) {
+//     var x = e.clientX;
+//     for (var i = 0; i < item_bgs.length; i++) {
+//       item_bgs[i].style.backgroundPositionX = -x / 50 + 'px';
+//     }
+//   });
+//   carousel_window.addEventListener('mouseout', function() {
+//     for (var i = 0; i < item_bgs.length; i++) {
+//       animate(item_bgs[i], { backgroundPositionX: 0 });
+//     }
+//   });
+// }
 
-// });
-carousel_bg_move();
+// carousel_bg_move();
+
+
+
+
+
+//点击
+
+
+
+
 
 //num变换加载
 function bg_num_run() {
@@ -285,7 +362,3 @@ function points_animate(element, count) {
   }
   points_animate_up(element[count]);
 }
-
-//第一个points具有onmouseover的效果
-// function firstEmerge() {
-// }
