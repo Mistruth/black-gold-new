@@ -1,0 +1,774 @@
+@charset "UTF-8";
+
+/* 导航区域开始 */
+
+
+/* 导航区域开始 */
+
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(92, 89, 89, 0.021));
+}
+
+.nav {
+  height: 90px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.nav .logo img {
+  height: 44px;
+  transition: height 0.3s;
+}
+
+.nav_wrapper {
+  margin-top: 25px;
+  transition: 0.3s;
+  position: relative;
+}
+
+
+/* 变小 */
+
+div.mini .nav_wrapper {
+  margin-top: 13px;
+}
+
+.mini {
+  height: 70px;
+}
+
+div.mini .nav_others li div {
+  right: 45px;
+}
+
+div.mini .logo img {
+  height: 34px;
+}
+
+div.mini .nav_list>li>a {
+  font-size: 13px;
+}
+
+
+/* 新的搜索框 */
+
+.newsearch {
+  position: absolute;
+  line-height: 30px;
+  width: 100px;
+  background-color: pink;
+  top: 5px;
+  left: 550px;
+  opacity: 0;
+}
+
+.newsearch i {
+  cursor: pointer;
+  font-size: 20px;
+  color: #AD986D;
+  position: absolute;
+  left: -30px;
+  top: 5px;
+}
+
+.newsearch input {
+  height: 30px;
+  width: 260px;
+  text-indent: 1em;
+  color: #AD986D;
+  position: absolute;
+  background-color: transparent;
+  border-bottom: 1px solid #3B3B3B;
+}
+
+
+/* 新的搜索框 */
+
+
+/* 变小 */
+
+.nav_list {
+  position: relative;
+}
+
+.nav .nav_list>li {
+  float: left;
+  position: relative;
+}
+
+.nav .nav_list>li>a {
+  display: block;
+  line-height: 38px;
+  padding: 0 26px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.nav .nav_list li i {
+  top: 1px;
+  left: 2px;
+}
+
+.nav .nav_list li.current {
+  background-color: #AD986D;
+}
+
+.nav .nav_list li.current>a {
+  color: #0E0D0E;
+}
+
+.nav .nav_others>li {
+  float: left;
+  line-height: 38px;
+  position: relative;
+  top: 3px;
+  padding: 0 10px;
+}
+
+.nav .nav_others li i {
+  font-size: 20px;
+  cursor: pointer;
+  color: #AD986D;
+}
+
+.nav .nav_others>li>div {
+  width: 1px;
+  height: 10px;
+  background-color: #4F4736;
+  position: absolute;
+  top: 11px;
+  right: 45px;
+  transition: all 0.3s;
+}
+
+
+/* 导航hover区域  B*/
+
+.nav_list>li:nth-child(3):hover .nav_sbnav,
+.nav_list>li:nth-child(4):hover .nav_sbnav,
+.nav_list>li:nth-child(6):hover .nav_sbnav {
+  display: block;
+}
+
+
+/* .nav_list li:not(:first-child):hover .nav_sbnav {
+    display: block;
+} */
+
+.nav_sbnav {
+  position: absolute;
+  top: 36px;
+  left: 0px;
+  height: 90px;
+  width: 180px;
+  background-color: #1B1B1B;
+  border-top: 2px solid #AD986D;
+  transition: all 0.4s;
+  display: none;
+}
+
+.nav_sbnav li {
+  line-height: 1;
+}
+
+.nav_sbnav li a {
+  display: inline-block;
+  width: 180px;
+  line-height: 45px;
+  font-size: 12px;
+  color: #606060;
+  text-indent: 26px;
+  transition: all 0.4s;
+}
+
+.nav_sbnav li a:hover {
+  background-color: #AD986D;
+  color: #FFFCFF;
+}
+
+.nav_list .nav_arrow {
+  position: absolute;
+  color: #AD986D;
+  top: 40px;
+  left: 280px;
+}
+
+.nav_list .nav_arrow i {
+  font-size: 8px;
+}
+
+
+/* 回到顶部 */
+
+header .toTop {
+  width: 40px;
+  background-color: #202020;
+  /* opacity: 0; */
+  position: fixed;
+  right: 1px;
+  bottom: 250px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 1px;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+header .toTop i {
+  position: relative;
+  font-weight: bold;
+  top: 3px;
+  color: #AD986D;
+  transition: all 0.4s;
+}
+
+header .toTop:hover {
+  background-color: #AD986D;
+}
+
+header .toTop:hover i {
+  color: #fff;
+}
+
+
+/* 导航hover区域  E*/
+
+
+/* 导航区域结束 */
+
+
+/* 导航hover区域  B*/
+
+.nav_list>li:nth-child(3):hover .nav_sbnav,
+.nav_list>li:nth-child(4):hover .nav_sbnav,
+.nav_list>li:nth-child(6):hover .nav_sbnav {
+  display: block;
+}
+
+
+/* .nav_list li:not(:first-child):hover .nav_sbnav {
+    display: block;
+} */
+
+.nav_sbnav {
+  position: absolute;
+  top: 36px;
+  left: 0px;
+  height: 90px;
+  width: 180px;
+  background-color: #1B1B1B;
+  border-top: 2px solid #AD986D;
+  transition: all 0.4s;
+  display: none;
+}
+
+.nav_sbnav li {
+  line-height: 1;
+}
+
+.nav_sbnav li a {
+  display: inline-block;
+  width: 180px;
+  line-height: 45px;
+  font-size: 12px;
+  color: #606060;
+  text-indent: 26px;
+  transition: all 0.4s;
+}
+
+.nav_sbnav li a:hover {
+  background-color: #AD986D;
+  color: #FFFCFF;
+}
+
+.nav_list .nav_arrow {
+  position: absolute;
+  color: #AD986D;
+  top: 45px;
+  left: 280px;
+  transition: top 0.3s;
+}
+
+.nav_list .nav_arrow i {
+  font-size: 8px;
+}
+
+
+/* 导航hover区域  E*/
+
+
+/* 导航区域结束 */
+
+
+/* 主体区域  开始 */
+
+.main_content {
+  padding-top: 52px;
+}
+
+.main_content1 {
+  border-top: 1px solid black;
+  margin-top: 90px;
+  /*!*overflow: hidden(可以加也可以不加)*/
+}
+
+
+/*.nav_list .nav_arrow {*/
+
+
+/*position: absolute;*/
+
+
+/*color: #AD986D;*/
+
+
+/*top: 40px;*/
+
+
+/*left: 34px;*/
+
+
+/*}*/
+
+
+/*.nav_list .nav_arrow i {*/
+
+
+/*font-size: 8px;*/
+
+
+/*}*/
+
+.item5 {
+  width: 286px;
+  /*padding-top:430px;*/
+  float: left;
+  margin-right: 15px;
+}
+
+.item5 li {
+  position: relative;
+  padding-bottom: 5px;
+  padding-top: 15px;
+  overflow: hidden;
+}
+
+
+/*.item5 p{*/
+
+
+/*width: 266px;*/
+
+
+/*height:95px;*/
+
+
+/*line-height: 60px;*/
+
+
+/*position:absolute;*/
+
+
+/*bottom: 5px;*/
+
+
+/*padding:0px 10px;*/
+
+
+/*font-size:18px;*/
+
+
+/*white-space: nowrap;*/
+
+
+/*text-overflow:ellipsis;*/
+
+
+/*color:#ad986d;*/
+
+
+/*background-color:rgba(0,0,0,.3);*/
+
+
+/*}*/
+
+
+/*.item5 p:hover{*/
+
+
+/*opacity: 1;*/
+
+
+/*}*/
+
+.item5 img {
+  width: 286px;
+}
+
+.item5 span,
+.item6 span,
+.item7 span,
+.item8 span {
+  font-size: 15px;
+  position: absolute;
+  bottom: 8px;
+  left: 0px;
+  padding: 0px 10px;
+  color: #ad986d;
+}
+
+.item6 {
+  width: 286px;
+  margin-right: 15px;
+  float: left;
+}
+
+.item6 p,
+.item5 p {
+  width: 266px;
+  height: 90px;
+  line-height: 60px;
+  position: absolute;
+  bottom: 5px;
+  padding: 0px 10px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #ad986d;
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+}
+
+.item6 img {
+  width: 286px;
+}
+
+.item6 li {
+  padding-bottom: 5px;
+  padding-top: 15px;
+  position: relative;
+}
+
+.item7 {
+  width: 286px;
+  margin-right: 15px;
+  float: left;
+  position: relative;
+  bottom: 68px;
+  padding-top: 68px;
+}
+
+.item7 p {
+  width: 266px;
+  height: 90px;
+  line-height: 60px;
+  position: absolute;
+  bottom: 5px;
+  padding: 0px 10px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #ad986d;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.item7 img {
+  width: 286px;
+}
+
+.item7 li {
+  padding-bottom: 5px;
+  padding-top: 15px;
+  position: relative;
+}
+
+.item8 {
+  width: 286px;
+  float: left;
+}
+
+.item8 p {
+  width: 266px;
+  height: 90px;
+  line-height: 60px;
+  position: absolute;
+  bottom: 5px;
+  padding: 0px 10px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  opacity: 0;
+  color: #ad986d;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.item8 img {
+  width: 286px;
+}
+
+.item8 li {
+  padding-bottom: 5px;
+  padding-top: 15px;
+  position: relative;
+}
+
+
+/* 主体区域  结束 */
+
+
+/*轮播图部分开始*/
+
+.zhang img {
+  height: 100%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -300px;
+  cursor: pointer;
+}
+
+.main_content {
+  padding-top: 130px;
+  background-color: #101012;
+}
+
+.zhang {
+  position: relative;
+  border-bottom: 1px solid #ad986d;
+  overflow: hidden;
+}
+
+.zhang .uls {
+  position: relative;
+  height: 770px;
+}
+
+.zhang .uls li {
+  height: 772px;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.navArrow {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+}
+
+.arrtop,
+.arrdown {
+  width: 30px;
+  height: 32px;
+  /*background-color:#ccc;*/
+  text-align: center;
+  padding-top: 10px;
+}
+
+.nav_arrow a {
+  font-size: 18px;
+}
+
+.ols li {
+  width: 20%;
+  height: 10px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+  /*background-color:pink;*/
+}
+
+
+/*.col{*/
+
+
+/*background-color:#ad986d;*/
+
+
+/*}*/
+
+.nav_cloud {
+  width: 1200px;
+  height: 6px;
+  position: relative;
+}
+
+.nav_cloud .cloud {
+  width: 240px;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  background-color: #ad986d;
+}
+
+
+/*瀑布流开始*/
+
+footer .fall {
+  width: 100%;
+  position: relative;
+}
+
+footer .fall li {
+  width: 285px;
+  position: absolute;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+footer .fall img {
+  width: 285px;
+  /*101012*/
+}
+
+footer {
+  background-color: #111111;
+}
+
+footer .title {
+  position: absolute;
+  bottom: 0px;
+  width: 265px;
+  height: 70px;
+  padding: 20px 10px 0px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #ad986d;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+footer .subtitle {
+  position: absolute;
+  bottom: 10px;
+  padding: 20px 20px 0px;
+  font-size: 15px;
+  color: #ad986d;
+  opacity: 0;
+}
+
+
+/*点击让图片放大，并且要给外面的盒子加一个overflow：hidden*/
+
+.fall li:hover img {
+  transform: scale(1.1);
+}
+
+.fall img {
+  transition: all 0.5s;
+}
+
+.sec {
+  height: 180px;
+}
+
+.sec .secRight {
+  width: 100px;
+  float: right;
+}
+
+.sec .secLeft {
+  width: 500px;
+  float: left;
+}
+
+.sec .secLeft,
+.sec .secRight {
+  padding-top: 50px;
+  color: #ad986d;
+  font-size: 20px;
+}
+
+.fall .title {
+  height: 76px;
+  width: 276px;
+  /*background-color:rgba(0,0,0,0.7);*/
+  position: absolute;
+  /* bottom:-70px;
+  opacity:0; */
+  padding-left: 10px;
+  /* transition: all 1s; */
+  padding-top: 20px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #ad986d;
+  /*设置渐变se*/
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.fall .subtitle {
+  width: 266px;
+  height: 40px;
+  position: absolute;
+  /* bottom: -30px;
+  opacity:0;
+  transition: all 1s; */
+  padding-left: 20px;
+  font-size: 16px;
+  color: #ad986d;
+}
+
+.fall li:hover .title {
+  animation: moveTitle1 0.5s ease forwards;
+  /* bottom:0;
+  opacity: 1; */
+}
+
+.fall li:hover .subtitle {
+  animation: moveTitle2 0.5s ease forwards;
+  /* bottom:0;
+  opacity: 1; */
+}
+
+.sec .page {
+  font-size: 25px;
+}
+
+.sec .pageBottom {
+  position: relative;
+  top: -15px;
+  left: 33px;
+}
+
+@keyframes moveTitle1 {
+  0% {
+    bottom: -70px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes moveTitle2 {
+  0% {
+    bottom: -30px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.cccc {
+  height: 50px;
+  background-color: #111111;
+  /*color:#ad986d;*/
+  font-size: 16px;
+}

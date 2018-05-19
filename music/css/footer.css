@@ -1,0 +1,91 @@
+.footer_wrap {
+  width: 100%;
+  background-color: #1A1A1A;
+  color: #474747;
+}
+
+.footer_t {
+  height: 240px;
+  width: 100%;
+  border-bottom: 1px solid #222222;
+}
+
+.f_t_content {
+  padding: 80px 0 100px 0;
+  line-height: 32px;
+}
+
+.f_t_content .contact_left div a {
+  display: inline-block;
+  line-height: 36px;
+  width: 36px;
+  text-align: center;
+  border-radius: 50%;
+  color: #5A595A;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.f_t_content .contact_left p:first-child {
+  font-size: 21px;
+  color: #ad986d;
+}
+
+.f_t_content .contact_left p:nth-child(2) {
+  font-size: 14px;
+  color: #453F31;
+  letter-spacing: 2px;
+  line-height: 34px;
+}
+
+.f_t_content .contact_left div a:hover {
+  background-color: #AD986D;
+  color: #fff;
+}
+
+.f_t_content .contact_middle {
+  margin-left: 330px;
+}
+
+.f_t_content .contact_middle,
+.f_t_content .contact_middle2 {
+  font-size: 13px;
+}
+
+.f_t_content .contact_middle2 {
+  margin-left: 45px;
+}
+
+.f_t_content .contact_tel p:first-child {
+  font-size: 12px;
+}
+
+.f_t_content .contact_tel p:last-child {
+  color: #ad986d;
+  font-size: 16px;
+}
+
+.f_t_content .contact_tel {
+  position: relative;
+}
+
+.f_t_content .contact_tel:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: -20px;
+  bottom: 6px;
+  width: 1px;
+  height: 50px;
+  background-color: #474747;
+  transform: rotate(30deg);
+}
+
+.footer_b .f_b_content {
+  font-size: 12px;
+  line-height: 40px;
+}
+
+.footer_b .f_b_content p span {
+  margin: 0 10px;
+}

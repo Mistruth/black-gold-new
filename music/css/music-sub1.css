@@ -1,0 +1,274 @@
+/* banner  B*/
+
+.banner {
+  height: 416px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner .banner_bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_music_banner.jpg) no-repeat center;
+}
+
+.banner .banner_title {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_music_title.png) no-repeat center;
+}
+
+.banner .banner_subtitle {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_music_title2.png) no-repeat center;
+}
+
+/* banner  E*/
+
+/* music   B */
+.music_content {
+  position: absolute;
+  top: 416px;
+  left: 0;
+  right: 0;
+  z-index: 2; /*提高层级，这样top慢慢变小的时候 能够覆盖banner*/
+  background-color: #111111;
+}
+
+.music_content .top_title {
+  padding-top: 40px;
+  border-bottom: 1px solid #1F1F1F;
+}
+
+.music_content .tab_clm li {
+  float: left;
+  border-bottom: 2px solid transparent;
+  transition: all 1.5s;
+}
+
+.music_content .tab_clm li a {
+  color: #5B5B5B;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.music_content .tab_clm li.current {
+  border-bottom: 2px solid #AD986D;
+}
+
+.music_content .tab_clm li:not(:first-child) {
+  margin: 0 15px;
+  position: relative;
+}
+
+.music_content .tab_clm li:first-child {
+  margin-right: 15px;
+}
+
+.music_content .tab_clm li:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -14px;
+  height: 12px;
+  width: 1px;
+  background-color: #5B5B5B;
+  transform: rotate(30deg);
+}
+
+.music_content .music_list {
+  margin-top: 35px;
+}
+/*写音乐列表的current  li 的样式*/
+
+.music_content .music_list  li.current {
+  width:100%;
+  height: 183px;
+  background: #1a1a1a;
+  /*position: absolute;*/
+  /*默认一开始在普通li的下面。*/
+  /*top: 111px;*/
+}
+.music_content .music_list  li.current a {
+  width: 950px;
+  height: 183px;
+}
+.music_content .music_list  li a {
+  width: 1150px;
+  height: 110px;
+}
+.music_content .music_list  li.current .item_box .record {
+  background-color: #695a3d;
+  width: 250px;
+  height: 183px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.music_content .music_list ul li.current .item_box .record .img {
+  width: 170px;
+  height: 170px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  /*background: url("../images/song_02.jpg") no-repeat center;*/
+  /*background-size: cover;*/
+  border-radius: 50%;
+}
+.music_content .music_list ul li.current .item_box .record img {
+  width: 100%;
+  height: 100%;
+}
+.music_content .music_list ul li.current .item_box .record .img .control {
+  top: 80px;
+  left: 80px;
+}
+.music_content .music_list ul li.current .item_title {
+  position: absolute;
+  top: 50px;
+  left: 300px;
+  cursor: pointer;
+}
+
+.music_content .music_list ul li .item_box .control {
+  width:12px;
+  height: 16px;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+}
+.music_content .music_list ul li i.play {
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  width: 0;
+  height: 0;
+  border-width: 8px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ad986d;
+}
+
+.music_content .music_list ul li i.pause {
+  position: absolute;
+  opacity: 0;
+  top: 16px;
+  left: 7px;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 14px;
+  border-left: 2px solid #ad986d;
+  border-right: 2px solid #ad986d;
+}
+
+.music_content .music_list li {
+  position: relative;
+  height: 110px;
+  border-bottom: 1px solid #1f1f1f;
+  list-style: none;
+}
+
+.music_list .item_box {
+  /*padding-top: 30px;*/
+  margin-left: 68px;
+}
+
+.music_list .item_box .mplayer {
+  position: absolute;
+  top: 36px;
+  width: 38px;
+  height: 38px;
+  left: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #a49067;;
+}
+
+
+.music_list .item_box .item_title {
+  position: absolute;
+  top: 32px;
+  left: 68px;
+}
+
+.music_list .item_box .item_title p:first-child {
+  color: #ad986d;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+.music_list .item_box .item_title p:last-child {
+  color: #414040;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.music_list .item_box .desc {
+  position: absolute;
+  top: 75px;
+  left: 460px;
+  color: #535252;;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 26px;
+  width: 400px;
+}
+
+.music_list .item_box .desc i {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.music_list .item_box .desc span {
+  display: block;
+  margin-left: 50px;
+}
+
+.music_list .item_box .timer {
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  margin-top: -10px;
+  font-size: 15px;
+  line-height: 20px;
+  color:#535252;
+}
+.timer i {
+  position: absolute;
+  top: 6px;
+  font-style: normal;
+ 
+}
+.timer i.left {
+  right: 17px;
+  opacity: 0;
+}
+.timer i.right {
+  right: -15px;
+}
+.music_list .item_box .timer div {
+  display: inline-block;
+  height: 20px;
+  width: 1px;
+  margin: 0 15px;
+  position: relative;
+  top: 5px;
+  background-color: #535252;
+}
+
+/* music   E */

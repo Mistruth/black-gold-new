@@ -1,0 +1,248 @@
+/* 导航区域开始 */
+header {
+    width: 100%;
+    position: fixed;
+    background-color: #111111;
+    z-index: 9;
+
+}
+.nav {
+    height: 90px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.nav .logo img {
+    height: 44px;
+    transition: height 0.3s;
+}
+.nav_wrapper {
+    margin-top:25px;
+    transition: 0.3s;
+}
+/* 变小 */
+div.mini .nav_wrapper {
+    margin-top:15px;
+}
+.mini {
+    height: 66px;
+}
+div.mini .nav_others li div {
+    right: 45px;
+}
+.mini .nav_list .nav_arrow {
+    top:45px;
+}
+div.mini .logo img {
+    height: 34px;
+}
+div.mini .nav_list>li>a {
+    font-size: 13px;
+}
+/* 变小 */
+.nav_list {
+    position: relative;
+}
+.nav .nav_list>li {
+    float: left;
+    position: relative;
+}
+.nav .nav_list>li>a {
+    display: block;
+    line-height: 38px;
+    padding:0 26px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.nav .nav_list li i {
+    top:1px;
+    left: 2px; 
+}
+.nav .nav_list li.current {
+    background-color: #AD986D;
+}
+.nav .nav_list li.current>a {
+    color:#0E0D0E;
+}
+.nav .nav_others>li {
+    float: left;
+    line-height: 38px;
+    position: relative;
+    top:3px;
+    padding: 0 10px;
+}
+.nav .nav_others li i {
+    font-size: 20px;
+    cursor: pointer;
+    color:#AD986D;
+}
+.nav .nav_others>li>div {
+    width: 1px;
+    height: 10px;
+    background-color: #4F4736;  
+    position: absolute;
+    top:11px;    
+    right: 45px;
+    transition: all 0.3s;
+}
+/* 导航hover区域  B*/
+.nav_list>li:nth-child(3):hover .nav_sbnav,
+.nav_list>li:nth-child(4):hover .nav_sbnav,
+.nav_list>li:nth-child(6):hover .nav_sbnav {
+    display: block;
+}
+/* .nav_list li:not(:first-child):hover .nav_sbnav {
+    display: block;
+} */
+.nav_sbnav {
+    position: absolute;
+    top:36px;
+    left:0px;
+    height: 90px;
+    width: 180px;
+    background-color: #1B1B1B;
+    border-top:2px solid #AD986D;
+    transition: all 0.4s;
+    display: none;
+}
+.nav_sbnav li {
+    line-height: 1;
+}
+.nav_sbnav li a {
+    display: inline-block;
+    width: 180px;
+    line-height: 45px;
+    font-size: 12px;
+    color:#606060;
+    text-indent:26px;
+    transition: all 0.4s;
+}
+.nav_sbnav li a:hover {
+    background-color: #AD986D;
+    color:#FFFCFF;  
+}
+
+.nav_list .nav_arrow {
+    position: absolute;
+    color:#AD986D;
+    top:45px;
+    left:34px;
+    transition: top 0.3s;
+}
+.nav_list .nav_arrow i {
+    font-size: 8px;
+}
+/* 导航hover区域  E*/
+/* 导航区域结束 */
+
+
+/* 主体区域  开始 */
+.main_content {
+    padding-top:52px;
+
+}
+.main_content1{
+    border-top:1px solid black;
+    margin-top:90px;
+    /*!*overflow: hidden(可以加也可以不加)*/
+}
+
+
+.item5{
+  width: 286px;
+  float: left;
+  margin-right:15px;
+}
+.item5 li{
+  position: relative;
+  margin-bottom:15px;
+  overflow: hidden;
+}
+
+.item5 img{
+  width: 286px;
+}
+
+.item6{
+  width: 286px;
+  margin-right:15px;
+  float: left;
+}
+
+.item6 img{
+  width: 286px;
+}
+
+.item6 li{
+  margin-bottom:15px;
+  position: relative;
+
+}
+.item7{
+  width: 286px;
+  margin-right:15px;
+  float: left;
+  position: relative;
+  bottom:68px;
+  padding-top:68px;
+}
+
+.item7 img{
+  width: 286px;
+}
+
+.item7 li{
+  margin-bottom:15px;
+  position: relative;
+
+}
+.item8{
+  width: 286px;
+  float: left;
+}
+
+.item8 img{
+  width: 286px;
+}
+section li:hover img {
+  transform: scale(1.2);
+}
+
+section img {
+  transition: all 0.5s;
+}
+.item8 li{
+  margin-bottom:15px;
+  position: relative;
+
+}
+.title{
+  position:absolute;
+  bottom:0px;
+  width: 265px;
+  height: 70px;
+  padding:20px 10px 0px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color:#ad986d;
+  background-color: rgba(0,0,0,.5);
+  transition:all 1s;
+  opacity: 0;
+
+}
+.subtitle{
+  position: absolute;
+  bottom:10px;
+  padding:20px 20px 0px;
+  font-size: 15px;
+  color:#ad986d;
+  transition:all 1s;
+  opacity: 0;
+
+}
+section li{
+  overflow: hidden;
+}
+
+/* 主体区域  结束 */
